@@ -1,0 +1,29 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const storyblokApi = useStoryblokApi();
+
+const { slug } = Astro.params;
+
+const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
+  version: "published",
+});
+const story = data.story;
+console.log('static', story.content.static);
+// export const prerender = await story.content.static;
+---
+<BaseLayout>
+  <!-- <StoryblokComponent blok={story.content} /> -->
+  <div>SLUG: {slug}</div>
+
+  <div>DATA: {JSON.stringify(data)}</div>
+</BaseLayout>
+<!-- <BaseLayout>
+  <main class="py-10">
+    <div class="page-container">
+      <StoryblokComponent blok={story.content} />
+    </div>
+  </main>
+</BaseLayout> -->

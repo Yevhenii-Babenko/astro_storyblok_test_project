@@ -10,6 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.0.18"
+    "@astrojs/netlify": "^2.2.0",
+    "@storyblok/astro": "^2.0.10",
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "astro": "^2.0.18",
+    "vite": "^4.1.4"
   }
 }
